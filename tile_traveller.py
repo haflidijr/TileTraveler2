@@ -95,14 +95,22 @@ def play_one_move(col, row, valid_directions):
     return victory, col, row, valid
 
 # The main program starts here
-victory = False
-row = 1
-col = 1
-total_coins = 0
-valid = True
+play_again = True
 
-while not victory:
-    valid_directions, total_coins = find_directions(col, row, total_coins, valid)
-    print_directions(valid_directions)
-    victory, col, row, valid = play_one_move(col, row, valid_directions)
-print("Victory! Total coins {0}.".format(total_coins))
+while play_again:
+    victory = False
+    row = 1
+    col = 1
+    total_coins = 0
+    valid = True
+
+    while not victory:
+        valid_directions, total_coins = find_directions(col, row, total_coins, valid)
+        print_directions(valid_directions)
+        victory, col, row, valid = play_one_move(col, row, valid_directions)
+    print("Victory! Total coins {0}.".format(total_coins))
+    play = str(input("Play again (y/n): "))
+    if play == 'y':
+        continue
+    elif play == 'n':
+        play_again = False
