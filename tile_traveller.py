@@ -94,10 +94,7 @@ def play_one_move(col, row, valid_directions):
         victory = is_victory(col, row)
     return victory, col, row, valid
 
-# The main program starts here
-play_again = True
-
-while play_again:
+def play_game():
     victory = False
     row = 1
     col = 1
@@ -109,6 +106,12 @@ while play_again:
         print_directions(valid_directions)
         victory, col, row, valid = play_one_move(col, row, valid_directions)
     print("Victory! Total coins {0}.".format(total_coins))
+
+# The main program starts here
+play_again = True
+
+while play_again:
+    play_game()
     play = str(input("Play again (y/n): "))
     if play == 'y':
         continue
