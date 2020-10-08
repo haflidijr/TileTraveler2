@@ -19,7 +19,6 @@ def move(direction, col, row):
 
 def coins(total_coins):
     lever = str(input("Pull a lever (y/n): "))
-    txt1 = "You received 1 coin, your total is now {0}.".format(total_coins)
     while lever != "y" or lever != "n":
         
         if lever == 'y':
@@ -103,4 +102,4 @@ while not victory:
     valid_directions = find_directions(col, row, total_coins)
     print_directions(valid_directions)
     victory, col, row = play_one_move(col, row, valid_directions)
-print("Victory! Total coins" + total_coins + ".")
+print("Victory! Total coins {0}.".format(total_coins))
